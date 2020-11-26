@@ -81,6 +81,10 @@ export const Main = styled.main`
 export const Headline = styled.h1`
     font-size: 90px;
     margin-bottom: 24px;
+
+    @media (max-width: 500px) {
+        font-size: 72px;
+    }
 `
 export const SubHeadline = styled.h2`
     font-size: 24px;
@@ -89,6 +93,11 @@ export const SubHeadline = styled.h2`
 
     max-width: 70%;
     margin-bottom: 24px;
+
+    @media (max-width: 500px) {
+        font-size: 14px;
+        margin-bottom: 48px;
+    }
 `
 export const MainActions = styled.div`
     display: flex;
