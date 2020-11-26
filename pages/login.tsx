@@ -9,7 +9,7 @@ const Login = () => {
         <FormPageContainer>
             <FormContainer>
                 <Logo form={true}/>
-                <InputFieldGroup inputId='email' inputTitle='Email' inputType='text'/>                                  
+                <InputFieldGroup inputId='email' inputTitle='Email' inputType='text'/>                
                 <FormButton>Entrar</FormButton>
                 <FormFooter>
                     <Link href='/register'>
