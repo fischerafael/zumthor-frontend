@@ -1,16 +1,13 @@
 import Link from 'next/link'
 import React from 'react'
+import Logo from '../Logo'
 
-import { ButtonNav, Logo, NavBar } from './styles'
+import { ButtonNav, NavBar } from './styles'
 
 const Nav = () => {
     return (
         <NavBar>
-            <Link href='/'>
-                <Logo>
-                    Zumthor
-                </Logo>
-            </Link>
+            <Logo />
             <Link href='/login'>
                 <ButtonNav>
                     Entrar

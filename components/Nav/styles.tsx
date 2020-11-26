@@ -10,9 +10,4 @@ export const NavBar = styled.div`
     width: 90%;
     height: 15vh;
 `
-export const Logo = styled.p`
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-`
 export const ButtonNav = styled(Button)``
