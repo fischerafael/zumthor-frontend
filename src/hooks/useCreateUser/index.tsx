@@ -33,7 +33,9 @@ const useCreateUser = () => {
         }        
             
         const user = await createUserService({ email: email })           
-        console.log(user)
+        
+        alert('Usuário criado com sucesso. Faça o login')
+
         router.push('/login')       
     }
 

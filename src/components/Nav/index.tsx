@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
+import { clearUserInfoInLocalStorage } from '../../helpers/localStorage'
 import Logo from '../Logo'
 
 import { ButtonNav, NavBar } from './styles'
@@ -14,7 +15,9 @@ const Nav: React.FC<INav> = ({ isDashboard }) => {
             <Logo />
             {isDashboard ?
                 <Link href='/'>
-                    <ButtonNav>
+                    <ButtonNav
+                        onClick={() => clearUserInfoInLocalStorage()}
+                    >
                         Sair
                     </ButtonNav>
                 </Link>
