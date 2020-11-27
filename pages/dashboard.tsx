@@ -1,11 +1,13 @@
 import React from 'react'
-import { NavBar } from '../src/components/Nav/styles'
+import Nav from '../src/components/Nav'
+
+import { PageContainer } from '../src/styles/page'
 
 const Dashboard = () => {
     return (
-        <>
-            <NavBar />
-        </>
+        <PageContainer>  
+          <Nav isDashboard={true}/>  
+        </PageContainer>
     )
 }
 

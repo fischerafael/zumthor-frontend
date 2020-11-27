@@ -4,15 +4,27 @@ import Logo from '../Logo'
 
 import { ButtonNav, NavBar } from './styles'
 
-const Nav = () => {
+interface INav {
+    isDashboard?: boolean
+}
+
+const Nav: React.FC<INav> = ({ isDashboard }) => {
     return (
         <NavBar>
             <Logo />
-            <Link href='/login'>
-                <ButtonNav>
-                    Entrar
-                </ButtonNav>
-            </Link>                
+            {isDashboard ?
+                <Link href='/'>
+                    <ButtonNav>
+                        Sair
+                    </ButtonNav>
+                </Link>
+            :
+                <Link href='/login'>
+                    <ButtonNav>
+                        Entrar
+                    </ButtonNav>
+                </Link>
+            }                            
         </NavBar>
     )
 }
