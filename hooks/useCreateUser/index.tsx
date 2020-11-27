@@ -16,14 +16,6 @@ const useCreateUser = () => {
 
         setIsLoading(true)
 
-        const isEmailValid = validateEmailSyntax(emailConfirmation)
-        if (!isEmailValid) {
-            setEmailCofirmationError('Informe um email válido')
-            setTimeout(() => setEmailCofirmationError(''), 2000)
-            setIsLoading(false) 
-            return
-        }
-
         const isEmailConfirmed = validateEmail(email, emailConfirmation)
         if (!isEmailConfirmed) {
             setEmailCofirmationError('Os emails são diferentes')   
@@ -31,6 +23,14 @@ const useCreateUser = () => {
             setIsLoading(false)    
             return
         } 
+
+        const isEmailValid = validateEmailSyntax(emailConfirmation)
+        if (!isEmailValid) {
+            setEmailCofirmationError('Informe um email válido')
+            setTimeout(() => setEmailCofirmationError(''), 2000)
+            setIsLoading(false) 
+            return
+        }        
             
         const user = await createUserService({ email: email })           
         console.log(user)
