@@ -5,6 +5,9 @@ import { getUserInfoInLocalStorage } from '../src/helpers/localStorage'
 
 import Nav from '../src/components/Nav'
 import { PageContainer } from '../src/styles/page'
+import ProjectList from '../src/components/ProjectSlider'
+
+import { projects } from '../mock/project'
 
 const Dashboard = () => {
   const router = useRouter()
@@ -15,7 +18,15 @@ const Dashboard = () => {
 
     return (
         <PageContainer>  
-          <Nav isDashboard={true}/>  
+          <Nav isDashboard={true}/> 
+          <ProjectList 
+            title='Referências'
+            projects={projects}
+          />
+          <ProjectList 
+            title='Projetos'
+            projects={projects}
+          />
         </PageContainer>
     )
 }

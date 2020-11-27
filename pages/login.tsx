@@ -5,7 +5,8 @@ import Logo from '../src/components/Logo'
 import useCreateSession from '../src/hooks/useCreateSession'
 
 import { LoadingMessage } from '../src/styles/loading'
-import { FormPageContainer, FormButton, FormContainer, FormFooter, FormLink } from '../src/styles/login'
+import { FormPageContainer, FormButton, FormContainer, FormFooter } from '../src/styles/login'
+import { FormLink } from '../src/styles/link'
 
 const Login = () => {
      

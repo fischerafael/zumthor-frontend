@@ -27,14 +27,3 @@ export const FormFooter = styled.div`
     align-items: center;
     justify-content: space-between;
 `
-export const FormLink = styled.a`
-    font-weight: bold;
-    font-size: 12px;
-    cursor: pointer;
-
-    transition: 0.5s;
-
-    &:hover {
-        color: #ccc;
-    }
-`
