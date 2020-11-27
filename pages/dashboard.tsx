@@ -1,10 +1,11 @@
 import React from 'react'
+import { NavBar } from '../src/components/Nav/styles'
 
 const Dashboard = () => {
     return (
-        <div>
-            Área Secreta
-        </div>
+        <>
+            <NavBar />
+        </>
     )
 }
 

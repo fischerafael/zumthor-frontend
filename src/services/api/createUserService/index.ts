@@ -1,4 +1,4 @@
-import api from '../../api'
+import api from ".."
 
 async function createUserService(data: { email: string }) {
     try {

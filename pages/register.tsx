@@ -1,11 +1,11 @@
 import Link from 'next/link'
-import useCreateUser from '../hooks/useCreateUser'
+import InputFieldGroup from '../src/components/InputFieldGroup'
 
-import InputFieldGroup from '../components/InputFieldGroup'
-import Logo from '../components/Logo'
+import Logo from '../src/components/Logo'
+import useCreateUser from '../src/hooks/useCreateUser'
 
-import { LoadingMessage } from '../styles/loading'
-import { FormPageContainer, FormButton, FormContainer, FormFooter, FormLink } from '../styles/login'
+import { LoadingMessage } from '../src/styles/loading'
+import { FormPageContainer, FormButton, FormContainer, FormFooter, FormLink } from '../src/styles/login'
 
 const Register = () => {   
 

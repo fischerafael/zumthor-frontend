@@ -1,7 +1,7 @@
 import React from 'react'
-import Nav from '../components/Nav'
-import MainHome from '../components/MainHome'
-import { PageContainer } from '../styles/page'
+import Nav from '../src/components/Nav'
+import MainHome from '../src/components/MainHome'
+import { PageContainer } from '../src/styles/page'
 
 const Home = () => {
     return (

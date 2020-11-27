@@ -1,8 +1,10 @@
 import Link from 'next/link'
 import React from 'react'
-import InputFieldGroup from '../components/InputFieldGroup'
-import Logo from '../components/Logo'
-import { FormPageContainer, FormButton, FormContainer, FormFooter, FormLink } from '../styles/login'
+
+import InputFieldGroup from '../src/components/InputFieldGroup'
+import Logo from '../src/components/Logo'
+
+import { FormPageContainer, FormButton, FormContainer, FormFooter, FormLink } from '../src/styles/login'
 
 const Login = () => {
     return (
