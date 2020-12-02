@@ -20,10 +20,12 @@ const Dashboard = () => {
         <PageContainer>  
           <Nav isDashboard={true}/> 
           <ProjectList 
+            link='dashboard/reference'
             title='Referências'
             projects={projects}
           />
           <ProjectList 
+            link='dashboard/project'
             title='Projetos'
             projects={projects}
           />

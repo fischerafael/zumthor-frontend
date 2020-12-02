@@ -1,21 +1,25 @@
+import Link from 'next/link'
 import { sliderSettings } from './sliderSettings'
 import { CardContainer, CardContent, CardImage, CardInfo, CardLink, CardScore, CreateNewProject, ProjectContainer, ProjectContainerHeader, ProjectSlider, ProjectTitle } from './styles'
 
 interface IProjectArray {
     title: string,
-    projects?: IProject[]
+    projects?: IProject[],
+    link: string
 }
 
-const ProjectList: React.FC<IProjectArray> = ({ projects, title }) => {
+const ProjectList: React.FC<IProjectArray> = ({ projects, title, link }) => {
     return (
         <ProjectContainer>
             <ProjectContainerHeader>
                 <ProjectTitle>
                     {title}
                 </ProjectTitle>
-                <CreateNewProject>
-                    Adicionar
-                </CreateNewProject>
+                <Link href={link}>
+                    <CreateNewProject>
+                        Adicionar
+                    </CreateNewProject>
+                </Link>                
             </ProjectContainerHeader>            
             <ProjectSlider {...sliderSettings}>
                 

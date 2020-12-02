@@ -3,12 +3,13 @@ import React from 'react'
 import { LogoStyle, LogoStyleForm } from './styles'
 
 interface ILogo {
-    form?: boolean
+    form?: boolean,
+    link?: string
 }
 
-const Logo: React.FC<ILogo> = ({ form }) => {
+const Logo: React.FC<ILogo> = ({ form, link }) => {
     return (
-        <Link href='/'>
+        <Link href={link ? `${link}` : '/'}>
             {form ? 
                 <LogoStyleForm>
                     Zumthor
