@@ -1,13 +1,13 @@
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
-import { getUserInfoInLocalStorage } from '../src/helpers/localStorage'
+import { getUserInfoInLocalStorage } from '../../src/helpers/localStorage'
 
-import Nav from '../src/components/Nav'
-import { PageContainer } from '../src/styles/page'
-import ProjectList from '../src/components/ProjectSlider'
+import Nav from '../../src/components/Nav'
+import { PageContainer } from '../../src/styles/page'
+import ProjectList from '../../src/components/ProjectSlider'
 
-import { projects } from '../mock/project'
+import { projects } from '../../mock/project'
 
 const Dashboard = () => {
   const router = useRouter()
