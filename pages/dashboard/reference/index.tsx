@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import FeatureButton from '../../../src/components/FeatureButton'
+import ThreeColumnsFormGroup from '../../../src/components/FormGroups/ThreeColumns'
 import InputFieldGroup from '../../../src/components/InputFieldGroup'
 import Logo from '../../../src/components/Logo'
 
@@ -35,34 +36,15 @@ const NewReference: React.FC<IReferenceProps> = ({ thumbnail }) => {
                             inputTitle='Nota'
                             inputType='number'
                         />
-                    </TwoColumnsInputContainer>  
+                    </TwoColumnsInputContainer>                      
+                                   
+                    <ThreeColumnsFormGroup 
+                        subTitle='Como você caracteriza este espaço?'
+                        firstFeatTitle='Espaço Interno'
+                        secondFeatTitle='Espaço de Transição'
+                        thirdFeatTitle='Espaço Externo'
+                    />                                                           
                     
-                    <SubTitle>Como você caracteriza este espaço?</SubTitle>                   
-                    <ThreeColumnsInputContainer>                        
-                        <FeatureButton isSet={1}>
-                            Espaço Interno
-                        </FeatureButton>                         
-                        <FeatureButton isSet={1}>
-                            Espaço de Transição
-                        </FeatureButton>
-                        <FeatureButton isSet={0}>
-                            Espaço Externo
-                        </FeatureButton>                         
-                    </ThreeColumnsInputContainer>
-
-                    <SubTitle>Como você caracteriza o tamanho deste espaço?</SubTitle>                   
-                    <ThreeColumnsInputContainer>                        
-                        <FeatureButton isSet={1}>
-                            Espaço Pequeno
-                        </FeatureButton>                         
-                        <FeatureButton isSet={1}>
-                            Espaço Médio
-                        </FeatureButton>
-                        <FeatureButton isSet={0}>
-                            Espaço Grande
-                        </FeatureButton>                         
-                    </ThreeColumnsInputContainer>
-
                     <SubTitle>Como você caracteriza a cobertura deste espaço?</SubTitle>                   
                     <FourColumnsInputContainer>  
                         <FeatureButton isSet={1}>
@@ -130,13 +112,6 @@ const TwoColumnsInputContainer = styled.div`
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;  
-    grid-gap: 15px;  
-    margin-top: 7.5px;
-`
-const ThreeColumnsInputContainer = styled.div`
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;  
     grid-gap: 15px;  
     margin-top: 7.5px;
 `
