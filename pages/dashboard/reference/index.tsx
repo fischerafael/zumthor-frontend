@@ -36,6 +36,10 @@ const NewReference: React.FC = () => {
     const [colorWhite, setColorWhite] = useState<number>(0)
     const [colorBlack, setColorBlack] = useState<number>(0)
 
+    const [tonePastel, setTonePastel] = useState<number>(0)
+    const [toneGrey, setToneGrey] = useState<number>(0)
+    const [toneVivid, setToneVivid] = useState<number>(0)
+
     return (
         <FormPageContainer>
             <FormPageContent>
@@ -156,6 +160,22 @@ const NewReference: React.FC = () => {
                         fifthFeatTitle='Preto'
                         fifthFeatState={colorBlack}
                         fifthFeatSetState={setColorBlack}
+                    />
+
+                    <ThreeColumnsFormGroup
+                        subTitle='Como você caracteriza os tons das cores deste projeto?'  
+
+                        firstFeatTitle='Cores vivas'
+                        firstFeatState={toneVivid}
+                        firstFeatSetState={setToneVivid}
+
+                        secondFeatTitle='Cores pastéis'
+                        secondFeatState={tonePastel}
+                        secondFeatSetState={setTonePastel}
+
+                        thirdFeatTitle='Escala de cinza'
+                        thirdFeatState={toneGrey}
+                        thirdFeatSetState={setToneGrey}
                     />
                              
                 </FormPageInputsContainer>                
