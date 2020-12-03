@@ -1,17 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import FeatureButton from '../../../src/components/FeatureButton'
 import ThreeColumnsFormGroup from '../../../src/components/FormGroups/ThreeColumns'
 import InputFieldGroup from '../../../src/components/InputFieldGroup'
 import Logo from '../../../src/components/Logo'
 
 import { PageContainer } from '../../../src/styles/page'
 
-interface IReferenceProps {
-    thumbnail: string
-}
+const NewReference: React.FC = () => {
+    const [thumbnail, setThumbnail] = useState<number | string>('')
+    const [score, setScore] = useState<number | string>(5)
 
-const NewReference: React.FC<IReferenceProps> = ({ thumbnail }) => {
+    const [typeInterior, setTypeInterior] = useState<number>(0)
+    const [typeTransition, setTypeTransition] = useState<number>(0)
+    const [typeExterior, setTypeExterior] = useState<number>(0)
+
+    const [sizeBig, setSizeBig] = useState<number>(0)
+    const [sizeMedium, setSizeMedium] = useState<number>(0)
+    const [sizeSmall, setSizeSmall] = useState<number>(0)
+
     return (
         <FormPageContainer>
             <FormPageContent>
@@ -20,7 +26,7 @@ const NewReference: React.FC<IReferenceProps> = ({ thumbnail }) => {
                 </FormPageBack>
                 <FormPageImage 
                     src={thumbnail ? 
-                        thumbnail :
+                        thumbnail as string :
                         '/default-image.gif'
                     } 
                 />
@@ -30,36 +36,48 @@ const NewReference: React.FC<IReferenceProps> = ({ thumbnail }) => {
                             inputId='thumbnail'
                             inputTitle='Link da Imagem'
                             inputType='text'
+                            state={thumbnail}
+                            setState={setThumbnail}
                         />
                         <InputFieldGroup
                             inputId='score'
                             inputTitle='Nota'
                             inputType='number'
+                            state={score}
+                            setState={setScore}
                         />
                     </TwoColumnsInputContainer>                      
                                    
-                    <ThreeColumnsFormGroup 
-                        subTitle='Como você caracteriza este espaço?'
+                    <ThreeColumnsFormGroup
+                        subTitle='Como você caracteriza este espaço?'                     
                         firstFeatTitle='Espaço Interno'
+                        firstFeatState={typeInterior}
+                        firstFeatSetState={setTypeInterior}
+
                         secondFeatTitle='Espaço de Transição'
+                        secondFeatState={typeTransition}
+                        secondFeatSetState={setTypeTransition}
+
                         thirdFeatTitle='Espaço Externo'
-                    />                                                           
-                    
-                    <SubTitle>Como você caracteriza a cobertura deste espaço?</SubTitle>                   
-                    <FourColumnsInputContainer>  
-                        <FeatureButton isSet={1}>
-                            Pé-direito baixo
-                        </FeatureButton>                      
-                        <FeatureButton isSet={1}>
-                            Pé-direito médio
-                        </FeatureButton>                         
-                        <FeatureButton isSet={1}>
-                            Pé-direito alto
-                        </FeatureButton>
-                        <FeatureButton isSet={0}>
-                            Sem cobertura
-                        </FeatureButton>                         
-                    </FourColumnsInputContainer>                  
+                        thirdFeatState={typeExterior}
+                        thirdFeatSetState={setTypeExterior}
+                    />
+
+                    <ThreeColumnsFormGroup
+                        subTitle='Como você caracteriza o tamanho deste espaço?'                     
+                        firstFeatTitle='Espaço Grande'
+                        firstFeatState={sizeBig}
+                        firstFeatSetState={setSizeBig}
+
+                        secondFeatTitle='Espaço Médio'
+                        secondFeatState={sizeMedium}
+                        secondFeatSetState={setSizeMedium}
+
+                        thirdFeatTitle='Espaço Pequeno'
+                        thirdFeatState={sizeSmall}
+                        thirdFeatSetState={setSizeSmall}
+                    />
+                             
                 </FormPageInputsContainer>                
             </FormPageContent>
         </FormPageContainer>

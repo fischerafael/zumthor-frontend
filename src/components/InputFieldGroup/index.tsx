@@ -5,8 +5,8 @@ interface IInputFieldGroup {
     inputTitle: string,
     inputId: string,
     inputType: string,
-    state?: string,
-    setState?: (e: string) => void
+    state?: string | number,
+    setState?: (e: string | number) => void    
     inputError?: string
 }
 
@@ -16,8 +16,13 @@ const InputFieldGroup: React.FC<IInputFieldGroup> = ({
     inputType, 
     inputError,
     state,
-    setState 
+    setState
 }) => {
+
+    function handleOnChange(e: React.ChangeEvent<HTMLInputElement>) {
+        setState(e.currentTarget.value)
+    }
+
     return (
         <InputContainer>
             <InputLabel htmlFor={inputId}>{inputTitle}</InputLabel>
@@ -25,7 +30,7 @@ const InputFieldGroup: React.FC<IInputFieldGroup> = ({
                 type={inputType} 
                 id={inputId}
                 value={state}
-                onChange={e => setState(e.target.value)}
+                onChange={handleOnChange}
             />
             {inputError && <InputError>{inputError}</InputError>}            
         </InputContainer>
@@ -33,3 +38,5 @@ const InputFieldGroup: React.FC<IInputFieldGroup> = ({
 }
 
 export default InputFieldGroup
+
+

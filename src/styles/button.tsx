@@ -28,3 +28,20 @@ export const Button = styled.button`
         font-weight: bold;
     }
 `
+export const FeatureButton = styled.button`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 45px;
+    min-width: 90px;
+
+    padding: 0 15px;    
+
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    font: inherit;
+    font-size: 12px;
+`
