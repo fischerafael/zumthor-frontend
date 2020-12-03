@@ -1,23 +1,29 @@
 import React from 'react'
-import styled from 'styled-components'
-import { FeatureButton } from '../../../styles/button'
-import { FeatureButtonActive, FeatureButtonInnactive, SubTitle, ThreeColumnsInputContainer } from '../styles'
+import { FeatureButtonActive, FeatureButtonInnactive, FourColumnsInputContainer, SubTitle } from '../styles'
 
 interface IFormGroup {
-    subTitle: string,    
+    subTitle: string,  
+
     firstFeatTitle: string,
-    firstFeatState: number,
+    firstFeatState: number,    
     firstFeatSetState: (e: any) => void,
+
     secondFeatTitle: string,
     secondFeatState: number,
     secondFeatSetState: (e: any) => void,
+
     thirdFeatTitle: string,
     thirdFeatState: number,
-    thirdFeatSetState: (e: any) => void
+    thirdFeatSetState: (e: any) => void,
+
+    fourthFeatTitle: string,
+    fourthFeatState: number,
+    fourthFeatSetState: (e: any) => void
 }
 
-const ThreeColumnsFormGroup: React.FC<IFormGroup> = ({ 
+const FourColumnsFormGroup: React.FC<IFormGroup> = ({ 
     subTitle,    
+
     firstFeatTitle,
     firstFeatState,
     firstFeatSetState,
@@ -28,12 +34,16 @@ const ThreeColumnsFormGroup: React.FC<IFormGroup> = ({
 
     thirdFeatTitle,
     thirdFeatState,
-    thirdFeatSetState
+    thirdFeatSetState,
+
+    fourthFeatTitle,
+    fourthFeatState,
+    fourthFeatSetState
 }) => {  
     return (
         <>
             <SubTitle>{subTitle}</SubTitle>
-            <ThreeColumnsInputContainer>
+            <FourColumnsInputContainer>
                 {firstFeatState === 1 ?
                     <FeatureButtonActive
                         onClick={() => firstFeatSetState(0)}
@@ -59,11 +69,20 @@ const ThreeColumnsFormGroup: React.FC<IFormGroup> = ({
                     <FeatureButtonInnactive
                         onClick={() => thirdFeatSetState(1)}
                     >{thirdFeatTitle}</FeatureButtonInnactive>
-                }          
+                }
 
-            </ThreeColumnsInputContainer>
+                {fourthFeatState === 1 ?
+                    <FeatureButtonActive
+                        onClick={() => fourthFeatSetState(0)}
+                    >{fourthFeatTitle}</FeatureButtonActive> :
+                    <FeatureButtonInnactive
+                        onClick={() => fourthFeatSetState(1)}
+                    >{fourthFeatTitle}</FeatureButtonInnactive>
+                }
+
+            </FourColumnsInputContainer>
         </>
     )
 }
 
-export default ThreeColumnsFormGroup
+export default FourColumnsFormGroup

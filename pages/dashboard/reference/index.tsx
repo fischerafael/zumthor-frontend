@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+
+import FourColumnsFormGroup from '../../../src/components/FormGroups/FourColumns'
 import ThreeColumnsFormGroup from '../../../src/components/FormGroups/ThreeColumns'
 import InputFieldGroup from '../../../src/components/InputFieldGroup'
 import Logo from '../../../src/components/Logo'
@@ -17,6 +19,11 @@ const NewReference: React.FC = () => {
     const [sizeBig, setSizeBig] = useState<number>(0)
     const [sizeMedium, setSizeMedium] = useState<number>(0)
     const [sizeSmall, setSizeSmall] = useState<number>(0)
+
+    const [ceilingLow, setCeilingLow] = useState<number>(0)
+    const [ceilingMedium, setCeilingMedium] = useState<number>(0)
+    const [ceilingHigh, setCeilingHigh] = useState<number>(0)
+    const [ceilingNone, setCeilingNone] = useState<number>(0)
 
     return (
         <FormPageContainer>
@@ -76,6 +83,25 @@ const NewReference: React.FC = () => {
                         thirdFeatTitle='Espaço Pequeno'
                         thirdFeatState={sizeSmall}
                         thirdFeatSetState={setSizeSmall}
+                    />
+
+                    <FourColumnsFormGroup
+                        subTitle='Como você caracteriza o pé-direito do espaço?'                     
+                        firstFeatTitle='Pé-direito baixo'
+                        firstFeatState={ceilingLow}
+                        firstFeatSetState={setCeilingLow}
+
+                        secondFeatTitle='Pé-direito médio'
+                        secondFeatState={ceilingMedium}
+                        secondFeatSetState={setCeilingMedium}
+
+                        thirdFeatTitle='Pé-direito alto'
+                        thirdFeatState={ceilingHigh}
+                        thirdFeatSetState={setCeilingHigh}
+
+                        fourthFeatTitle='Aberto'
+                        fourthFeatState={ceilingNone}
+                        fourthFeatSetState={setCeilingNone}
                     />
                              
                 </FormPageInputsContainer>                
