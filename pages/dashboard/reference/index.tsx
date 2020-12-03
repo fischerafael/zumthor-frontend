@@ -40,6 +40,25 @@ const NewReference: React.FC = () => {
     const [toneGrey, setToneGrey] = useState<number>(0)
     const [toneVivid, setToneVivid] = useState<number>(0)
 
+    const [limitOpen, setLimitOpen] = useState<number>(0)
+    const [limitSemi, setLimitSemi] = useState<number>(0)
+    const [limitClose, setLimitClose] = useState<number>(0)
+
+    const [populationDense, setPopulationDense] = useState<number>(0)
+    const [populationMedium, setPopulationMedium] = useState<number>(0)
+    const [populationLow, setPopulationLow] = useState<number>(0)
+
+    const [furnitureHigh, setfurnitureHigh] = useState<number>(0)
+    const [furnitureMedium, setfurnitureMedium] = useState<number>(0)
+    const [furnitureLow, setfurnitureLow] = useState<number>(0)
+
+    const [operationDay, setoperationDay] = useState<number>(0)
+    const [operationNight, setoperationNight] = useState<number>(0)
+
+    const [lightHigh, setlightHigh] = useState<number>(0)
+    const [lightMedium, setlightMedium] = useState<number>(0)
+    const [lightLow, setlightLow] = useState<number>(0)
+
     return (
         <FormPageContainer>
             <FormPageContent>
@@ -165,17 +184,49 @@ const NewReference: React.FC = () => {
                     <ThreeColumnsFormGroup
                         subTitle='Como você caracteriza os tons das cores deste projeto?'  
 
-                        firstFeatTitle='Cores vivas'
+                        firstFeatTitle='Tons vivos'
                         firstFeatState={toneVivid}
                         firstFeatSetState={setToneVivid}
 
-                        secondFeatTitle='Cores pastéis'
+                        secondFeatTitle='Tons pastéis'
                         secondFeatState={tonePastel}
                         secondFeatSetState={setTonePastel}
 
                         thirdFeatTitle='Escala de cinza'
                         thirdFeatState={toneGrey}
                         thirdFeatSetState={setToneGrey}
+                    />
+
+                    <ThreeColumnsFormGroup
+                        subTitle='Como você caracteriza os limites desse projeto?'  
+
+                        firstFeatTitle='Aberto'
+                        firstFeatState={limitOpen}
+                        firstFeatSetState={setLimitOpen}
+
+                        secondFeatTitle='Semi-aberto'
+                        secondFeatState={limitSemi}
+                        secondFeatSetState={setLimitSemi}
+
+                        thirdFeatTitle='Fechado'
+                        thirdFeatState={limitClose}
+                        thirdFeatSetState={setLimitClose}
+                    />
+
+                    <ThreeColumnsFormGroup
+                        subTitle='Como você caracteriza a quantidade de pessoas percebida nesse espaço?'  
+
+                        firstFeatTitle='Muitas'
+                        firstFeatState={populationDense}
+                        firstFeatSetState={setPopulationDense}
+
+                        secondFeatTitle='Algumas'
+                        secondFeatState={populationMedium}
+                        secondFeatSetState={setPopulationMedium}
+
+                        thirdFeatTitle='Poucas'
+                        thirdFeatState={populationLow}
+                        thirdFeatSetState={setPopulationLow}
                     />
                              
                 </FormPageInputsContainer>                
@@ -194,7 +245,7 @@ const FormPageContent = styled.div`
     margin: 50px;
     
     max-width: 600px;
-    width: 100%;
+    width: 90%;
 
     display: flex;
     flex-direction: column;
