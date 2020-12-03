@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import FiveColumnsFormGroup from '../../../src/components/FormGroups/FiveColumns'
 
 import FourColumnsFormGroup from '../../../src/components/FormGroups/FourColumns'
 import ThreeColumnsFormGroup from '../../../src/components/FormGroups/ThreeColumns'
@@ -24,6 +25,16 @@ const NewReference: React.FC = () => {
     const [ceilingMedium, setCeilingMedium] = useState<number>(0)
     const [ceilingHigh, setCeilingHigh] = useState<number>(0)
     const [ceilingNone, setCeilingNone] = useState<number>(0)
+
+    const [materialNatural, setMaterialNatural] = useState<number>(0)
+    const [materialMixed, setMaterialMixed] = useState<number>(0)
+    const [materialArtificial, setMaterialArtificial] = useState<number>(0)
+
+    const [colorRed, setColorRed] = useState<number>(0)
+    const [colorGreen, setColorGreen] = useState<number>(0)
+    const [colorBlue, setColorBlue] = useState<number>(0)
+    const [colorWhite, setColorWhite] = useState<number>(0)
+    const [colorBlack, setColorBlack] = useState<number>(0)
 
     return (
         <FormPageContainer>
@@ -56,7 +67,8 @@ const NewReference: React.FC = () => {
                     </TwoColumnsInputContainer>                      
                                    
                     <ThreeColumnsFormGroup
-                        subTitle='Como você caracteriza este espaço?'                     
+                        subTitle='Como você caracteriza este espaço?'  
+
                         firstFeatTitle='Espaço Interno'
                         firstFeatState={typeInterior}
                         firstFeatSetState={setTypeInterior}
@@ -71,7 +83,8 @@ const NewReference: React.FC = () => {
                     />
 
                     <ThreeColumnsFormGroup
-                        subTitle='Como você caracteriza o tamanho deste espaço?'                     
+                        subTitle='Como você caracteriza o tamanho deste espaço?'  
+
                         firstFeatTitle='Espaço Grande'
                         firstFeatState={sizeBig}
                         firstFeatSetState={setSizeBig}
@@ -86,7 +99,8 @@ const NewReference: React.FC = () => {
                     />
 
                     <FourColumnsFormGroup
-                        subTitle='Como você caracteriza o pé-direito do espaço?'                     
+                        subTitle='Como você caracteriza o pé-direito do espaço?' 
+
                         firstFeatTitle='Pé-direito baixo'
                         firstFeatState={ceilingLow}
                         firstFeatSetState={setCeilingLow}
@@ -102,6 +116,46 @@ const NewReference: React.FC = () => {
                         fourthFeatTitle='Aberto'
                         fourthFeatState={ceilingNone}
                         fourthFeatSetState={setCeilingNone}
+                    />
+
+                    <ThreeColumnsFormGroup
+                        subTitle='Como você caracteriza os materiais deste espaço?'  
+
+                        firstFeatTitle='Naturais'
+                        firstFeatState={materialNatural}
+                        firstFeatSetState={setMaterialNatural}
+
+                        secondFeatTitle='Misto'
+                        secondFeatState={materialMixed}
+                        secondFeatSetState={setMaterialMixed}
+
+                        thirdFeatTitle='Artificiais'
+                        thirdFeatState={materialArtificial}
+                        thirdFeatSetState={setMaterialArtificial}
+                    />
+
+                    <FiveColumnsFormGroup
+                        subTitle='Como você caracteriza as cores predominantes do espaço?'   
+
+                        firstFeatTitle='Vermelho'
+                        firstFeatState={colorRed}
+                        firstFeatSetState={setColorRed}
+
+                        secondFeatTitle='Verde'
+                        secondFeatState={colorGreen}
+                        secondFeatSetState={setColorGreen}
+
+                        thirdFeatTitle='Azul'
+                        thirdFeatState={colorBlue}
+                        thirdFeatSetState={setColorBlue}
+
+                        fourthFeatTitle='Branco'
+                        fourthFeatState={colorWhite}
+                        fourthFeatSetState={setColorWhite}
+
+                        fifthFeatTitle='Preto'
+                        fifthFeatState={colorBlack}
+                        fifthFeatSetState={setColorBlack}
                     />
                              
                 </FormPageInputsContainer>                

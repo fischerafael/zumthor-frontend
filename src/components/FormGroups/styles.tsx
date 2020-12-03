@@ -13,6 +13,9 @@ export const ThreeColumnsInputContainer = styled(ColumnsInputContainer)`
 export const FourColumnsInputContainer = styled(ColumnsInputContainer)`
     grid-template-columns: 1fr 1fr 1fr 1fr;  
 `
+export const FiveColumnsInputContainer = styled(ColumnsInputContainer)`
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;  
+`
 
 export const SubTitle = styled.h2`
     margin: 15px;
