@@ -10,6 +10,7 @@ import { PageContainer } from '../../../src/styles/page';
 
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { Button } from '../../../src/styles/button';
 
 const NewReference: React.FC = () => {
 	const [thumbnail, setThumbnail] = useState<number | string>('');
@@ -54,8 +55,8 @@ const NewReference: React.FC = () => {
 	const [furnitureMedium, setfurnitureMedium] = useState<number>(0);
 	const [furnitureLow, setfurnitureLow] = useState<number>(0);
 
-	const [operationDay, setoperationDay] = useState<number>(0);
-	const [operationNight, setoperationNight] = useState<number>(0);
+	const [operationDay, setOperationDay] = useState<number>(0);
+	const [operationNight, setOperationNight] = useState<number>(0);
 
 	const [lightHigh, setlightHigh] = useState<number>(0);
 	const [lightMedium, setlightMedium] = useState<number>(0);
@@ -217,15 +218,29 @@ const NewReference: React.FC = () => {
 					/>
 
 					<TwoColumnsFormGroup
-						subTitle="O espaço é utilizado:"
-						firstFeatTitle="Vazio"
-						firstFeatState={furnitureLow}
-						firstFeatSetState={setfurnitureLow}
-						secondFeatTitle="Alguns móveis/objetos"
-						secondFeatState={furnitureMedium}
-						secondFeatSetState={setfurnitureMedium}
+						subTitle="O espaço é utilizado durante o:"
+						firstFeatTitle="Dia"
+						firstFeatState={operationDay}
+						firstFeatSetState={setOperationDay}
+						secondFeatTitle="Noite"
+						secondFeatState={operationNight}
+						secondFeatSetState={setOperationNight}
+					/>
+
+					<ThreeColumnsFormGroup
+						subTitle="Como você caracteriza a iluminação do espaço?"
+						firstFeatTitle="Bastante Iluminado"
+						firstFeatState={lightHigh}
+						firstFeatSetState={setlightHigh}
+						secondFeatTitle="Meia Luz"
+						secondFeatState={lightMedium}
+						secondFeatSetState={setlightMedium}
+						thirdFeatTitle="Pouco Iluminado"
+						thirdFeatState={lightLow}
+						thirdFeatSetState={setlightLow}
 					/>
 				</FormPageInputsContainer>
+				<FormProjectButton>Salvar</FormProjectButton>
 			</FormPageContent>
 		</FormPageContainer>
 	);
@@ -279,4 +294,7 @@ const TwoColumnsInputContainer = styled.div`
 	grid-template-columns: 1fr 1fr;
 	grid-gap: 15px;
 	margin-top: 7.5px;
+`;
+const FormProjectButton = styled(Button)`
+	width: 100%;
 `;
