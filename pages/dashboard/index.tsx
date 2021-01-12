@@ -1,36 +1,57 @@
-import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 
-import { getUserInfoInLocalStorage } from '../../src/helpers/localStorage'
+import { getUserInfoInLocalStorage } from '../../src/helpers/localStorage';
 
-import Nav from '../../src/components/Nav'
-import { PageContainer } from '../../src/styles/page'
-import ProjectList from '../../src/components/ProjectSlider'
+import Nav from '../../src/components/Nav';
+import { PageContainer } from '../../src/styles/page';
+import ProjectList from '../../src/components/ProjectSlider';
 
-import { projects } from '../../mock/project'
+import api from '../../src/services/api';
 
 const Dashboard = () => {
-  const router = useRouter()
-  useEffect(() => {
-    const userData = getUserInfoInLocalStorage('userData')
-    if (!userData) { router.push('/') }
-  }, [])  
+	const router = useRouter();
 
-    return (
-        <PageContainer>  
-          <Nav isDashboard={true}/> 
-          <ProjectList 
-            link='dashboard/reference'
-            title='Referências'
-            projects={projects}
-          />
-          <ProjectList 
-            link='dashboard/project'
-            title='Projetos'
-            projects={projects}
-          />
-        </PageContainer>
-    )
-}
+	const [references, setReferences] = useState([]);
+	const [projects, setProjects] = useState([]);
 
-export default Dashboard
+	useEffect(() => {
+		const userData = getUserInfoInLocalStorage('userData');
+		if (!userData) {
+			router.push('/');
+		}
+	}, []);
+
+	useEffect(() => {
+		getProfileProjects();
+	}, []);
+
+	async function getProfileProjects() {
+		const projects: { data: { category: string }[] } = await api.get(
+			`profiles/5fc102ab0f216100048990ef`
+		);
+		const { data } = projects;
+		setReferences(
+			data.filter((project) => project.category === 'reference')
+		);
+		setProjects(data.filter((project) => project.category === 'project'));
+	}
+
+	return (
+		<PageContainer>
+			<Nav isDashboard={true} />
+			<ProjectList
+				link="dashboard/reference"
+				title="Referências"
+				projects={references}
+			/>
+			<ProjectList
+				link="dashboard/project"
+				title="Projetos"
+				projects={projects}
+			/>
+		</PageContainer>
+	);
+};
+
+export default Dashboard;
