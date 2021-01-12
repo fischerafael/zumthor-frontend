@@ -1,6 +1,6 @@
 import api from '..';
 
-async function createUserService(data: { email: string }) {
+async function createReferenceService(data: { email: string }) {
 	try {
 		const response = await api.post('users', data);
 		return {
@@ -15,4 +15,4 @@ async function createUserService(data: { email: string }) {
 	}
 }
 
-export default createUserService;
+export default createReferenceService;
