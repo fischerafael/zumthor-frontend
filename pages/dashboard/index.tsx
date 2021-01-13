@@ -12,15 +12,19 @@ import api from '../../src/services/api';
 const Dashboard = () => {
 	const router = useRouter();
 
-	const [references, setReferences] = useState([]);
-	const [projects, setProjects] = useState([]);
+	const [userId, setUserId] = useState('');
 
 	useEffect(() => {
 		const userData = getUserInfoInLocalStorage('userData');
+		const { _id } = userData;
+		setUserId(_id);
 		if (!userData) {
 			router.push('/');
 		}
 	}, []);
+
+	const [references, setReferences] = useState([]);
+	const [projects, setProjects] = useState([]);
 
 	useEffect(() => {
 		getProfileProjects();
@@ -28,7 +32,7 @@ const Dashboard = () => {
 
 	async function getProfileProjects() {
 		const projects: { data: { category: string }[] } = await api.get(
-			`profiles/5fc102ab0f216100048990ef`
+			`profiles/${userId}`
 		);
 		const { data } = projects;
 		setReferences(
