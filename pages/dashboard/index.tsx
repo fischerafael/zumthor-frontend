@@ -8,8 +8,39 @@ import { PageContainer } from '../../src/styles/page';
 import styled from 'styled-components';
 import { Button } from '../../src/styles/button';
 
+import SingleCard from '../../src/components/SingleCard';
+import Link from 'next/link';
+import api from '../../src/services/api';
+import { useEffect, useState } from 'react';
+
 const Dashboard = () => {
-	const { projects, references } = useGetUserInfo();
+	const {
+		projects,
+		references,
+		userId,
+		deletedProject,
+		setDeletedProject
+	} = useGetUserInfo();
+
+	async function deleteProductHandler(projectId: string, userId: string) {
+		try {
+			await api.delete(
+				`/users/${userId}/referencesprojects/${projectId}`,
+				{
+					headers: {
+						auth_id: userId
+					}
+				}
+			);
+			setDeletedProject(!deletedProject);
+			alert(
+				`O projeto de ID ${projectId}, pertencente ao usuário de ID ${userId}, foi removido`
+			);
+		} catch (err) {
+			console.log(err);
+			alert('Erro ao remover projeto');
+		}
+	}
 
 	return (
 		<PageContainer>
@@ -18,19 +49,25 @@ const Dashboard = () => {
 			<CardContainerStyle>
 				<CardContainerHeaderStyle>
 					<h2>Referências</h2>
-					<CardContainerButtonStyle>
-						Adicionar
-					</CardContainerButtonStyle>
+					<Link href="dashboard/reference">
+						<CardContainerButtonStyle>
+							Adicionar
+						</CardContainerButtonStyle>
+					</Link>
 				</CardContainerHeaderStyle>
 
-				<CardContainerBodyStyle>oi</CardContainerBodyStyle>
+				<CardContainerBodyStyle>
+					{references.map((reference) => (
+						<SingleCard
+							key={reference._id}
+							features={reference}
+							remove={deleteProductHandler}
+							userId={userId}
+						/>
+					))}
+				</CardContainerBodyStyle>
 			</CardContainerStyle>
 
-			<ProjectList
-				link="dashboard/reference"
-				title="Referências"
-				projects={references}
-			/>
 			{references.length < 3 ? null : (
 				<ProjectList
 					link="dashboard/project"
@@ -44,7 +81,23 @@ const Dashboard = () => {
 
 export default Dashboard;
 
+export const CardContainerBodyStyle = styled.div`
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	max-width: 900px;
+	width: 100%;
+
+	@media (max-width: 720px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@media (max-width: 480px) {
+		grid-template-columns: repeat(1, 1fr);
+	}
+`;
+
 export const CardContainerStyle = styled.div`
+	max-width: 900px;
 	width: 90%;
 	display: flex;
 	align-items: center;
@@ -69,4 +122,3 @@ export const CardContainerButtonStyle = styled(Button)`
 		background: #ccc;
 	}
 `;
-export const CardContainerBodyStyle = styled.div``;

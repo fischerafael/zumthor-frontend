@@ -4,14 +4,18 @@ import { getUserInfoInLocalStorage } from '../../helpers/localStorage';
 import api from '../../services/api';
 
 const useGetUserInfo = () => {
+	const [deletedProject, setDeletedProject] = useState(false);
+
 	useEffect(() => {
 		getProfileProjects();
-	}, []);
+	}, [deletedProject]);
 
 	const router = useRouter();
 
 	const [references, setReferences] = useState([]);
 	const [projects, setProjects] = useState([]);
+
+	const [userId, setUserId] = useState('');
 
 	async function getProfileProjects() {
 		const userData = getUserInfoInLocalStorage('userData');
@@ -23,8 +27,15 @@ const useGetUserInfo = () => {
 
 		const { _id } = userData;
 
+		setUserId(_id);
+
 		try {
 			const projects = await api.get(`profiles/${_id}`);
+
+			console.log(projects);
+
+			if (projects.status === 404) {
+			}
 
 			const profileReferences = filterReferences(projects);
 			const profileProjects = filterProjects(projects);
@@ -33,11 +44,10 @@ const useGetUserInfo = () => {
 			setProjects(profileProjects);
 		} catch (err) {
 			console.log(err);
-			alert('Erro ao carregar projetos');
 		}
 	}
 
-	return { references, projects };
+	return { references, projects, userId, deletedProject, setDeletedProject };
 };
 
 export default useGetUserInfo;
