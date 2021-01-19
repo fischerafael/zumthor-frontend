@@ -63,7 +63,7 @@ const SingleCard: React.FC<ISingleCard> = ({ features, remove, userId }) => {
 					<h2>Atmosfera de </h2>
 					<h1>{showAtmosphereStatus(features.score)}</h1>
 				</div>
-				<h1>{features.score}</h1>
+				<h1>{features.score.toFixed(2)}</h1>
 			</SingleCardHeaderContainerStyle>
 			<SingleCardBodyContainerStyle>
 				{features.ceiling_high === 1 && <span>#forro alto</span>}

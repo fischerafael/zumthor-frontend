@@ -68,12 +68,28 @@ const Dashboard = () => {
 				</CardContainerBodyStyle>
 			</CardContainerStyle>
 
-			{references.length < 3 ? null : (
-				<ProjectList
-					link="dashboard/project"
-					title="Projetos"
-					projects={projects}
-				/>
+			{references.length < 5 ? null : (
+				<CardContainerStyle>
+					<CardContainerHeaderStyle>
+						<h2>Projetos</h2>
+						<Link href="dashboard/project">
+							<CardContainerButtonStyle>
+								Adicionar
+							</CardContainerButtonStyle>
+						</Link>
+					</CardContainerHeaderStyle>
+
+					<CardContainerBodyStyle>
+						{projects.map((project) => (
+							<SingleCard
+								key={project._id}
+								features={project}
+								remove={deleteProductHandler}
+								userId={userId}
+							/>
+						))}
+					</CardContainerBodyStyle>
+				</CardContainerStyle>
 			)}
 		</PageContainer>
 	);
