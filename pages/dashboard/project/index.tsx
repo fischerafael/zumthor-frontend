@@ -173,6 +173,25 @@ const NewReference: React.FC = () => {
 							}
 						/>
 						<FormPageInputsContainer>
+							<InstructionsContainerStyle>
+								<h2>Instruções</h2>
+								<p>
+									- Copie e cole o link da imagem do projeto
+									no campo a seguir
+								</p>
+								<p>
+									- Selecione as opções que melhor descrevem o
+									projeto
+								</p>
+								<p>
+									- Você pode selecionar mais do que uma opção
+								</p>
+								<p>
+									- Ao finalizar, clique em salvar. Em
+									seguida, você poderá ver a atmosfera
+									calculada para o projeto
+								</p>
+							</InstructionsContainerStyle>
 							<TwoColumnsInputContainer>
 								<InputFieldGroup
 									inputId="thumbnail"
@@ -397,4 +416,16 @@ const FormProjectButton = styled(Button)`
 const FormLoadingMessage = styled(LoadingMessage)`
 	padding: 35vh;
 	height: 60vh;
+`;
+
+export const InstructionsContainerStyle = styled.div`
+	margin-bottom: 25px;
+	h2 {
+		font-size: 12px;
+	}
+	p {
+		margin-top: 2.5px;
+		font-size: 10px;
+		margin-bottom: 2.5px;
+	}
 `;

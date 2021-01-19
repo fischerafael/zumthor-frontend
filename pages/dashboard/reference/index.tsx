@@ -16,6 +16,7 @@ import api from '../../../src/services/api';
 import { useRouter } from 'next/router';
 import { getUserInfoInLocalStorage } from '../../../src/helpers/localStorage';
 import { LoadingMessage } from '../../../src/styles/loading';
+import { InstructionsContainerStyle } from '../project';
 
 const NewReference: React.FC = () => {
 	const router = useRouter();
@@ -172,6 +173,64 @@ const NewReference: React.FC = () => {
 							}
 						/>
 						<FormPageInputsContainer>
+							<InstructionsContainerStyle>
+								<h2>Instruções</h2>
+								<p>
+									- Copie e cole o link da imagem do projeto
+									no campo Link da Imagem
+								</p>
+								<p>
+									- Atmosferas de perigo são aquelas com nota
+									entre 0 e 2 (estimulantes e negativas)
+								</p>
+								<p>
+									- Atmosferas de tédio são aquelas com nota
+									entre 2 e 4.5 (desestimulantes e negativas)
+								</p>
+								<p>
+									- Atmosferas neutras são aquelas com nota
+									entre 4.5 e 5.5
+								</p>
+								<p>
+									- Atmosferas de conforto são aquelas com
+									nota entre 5.5 e 8 (desestimulantes e
+									positivas)
+								</p>
+								<p>
+									- Atmosferas de aventura são aquelas com
+									nota entre 8 e 10 (estimulantes e negativas)
+								</p>
+								<p>
+									- Pergunte ao usuário qual tipo de atmosfera
+									ele percebe na referência (perigo, tédio,
+									neutralidade, conforto ou aventura)
+								</p>
+								<p>
+									- Selecione a nota de 0 a 10 que corresponde
+									à atmosfera do projeto
+								</p>
+								<p>
+									- Os itens que melhor caracterizam a
+									referência devem ser selecionados somente
+									pelo arquiteto. Não há mais necessidade de
+									consultar o usuário aqui
+								</p>
+								<p>
+									- Selecione as opções que melhor descrevem o
+									projeto
+								</p>
+								<p>
+									- Você pode selecionar mais do que uma opção
+								</p>
+								<p>
+									- Ao finalizar, clique em salvar. Em
+									seguida, você poderá a referência de
+									projeto, sua atmosfera e característica.
+									Baseie-se nestas informações ao projetar - e
+									nas atmosferas que elas resultam perante aos
+									usuários - para projetar
+								</p>
+							</InstructionsContainerStyle>
 							<TwoColumnsInputContainer>
 								<InputFieldGroup
 									inputId="thumbnail"
@@ -180,6 +239,7 @@ const NewReference: React.FC = () => {
 									state={thumbnail}
 									setState={setThumbnail}
 								/>
+
 								<InputFieldGroup
 									inputId="score"
 									inputTitle="Nota"

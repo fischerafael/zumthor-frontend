@@ -51,7 +51,7 @@ const Dashboard = () => {
 					<h2>Referências</h2>
 					<Link href="dashboard/reference">
 						<CardContainerButtonStyle>
-							Adicionar
+							Adicionar (cadastre ao menos 5 referências)
 						</CardContainerButtonStyle>
 					</Link>
 				</CardContainerHeaderStyle>
@@ -74,7 +74,7 @@ const Dashboard = () => {
 						<h2>Projetos</h2>
 						<Link href="dashboard/project">
 							<CardContainerButtonStyle>
-								Adicionar
+								Adicionar Projeto
 							</CardContainerButtonStyle>
 						</Link>
 					</CardContainerHeaderStyle>
